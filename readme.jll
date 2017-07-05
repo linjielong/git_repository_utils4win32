@@ -25,7 +25,8 @@ About NFS in order to mount the windows partition to Linux.
   (1). Copy works4tpv_bat_Executor.vbe link file to C:\Users\jielong.lin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
   (3). In another system such as Linux:
            mount -v -t nfs -o nfsvers=3 xmnb4003161.tpvaoc.com:/works4tpv  works4tpv
-
+           OR
+           cp -rvf nfs_by_jielong.sh  /etc/profile.d/nfs_by_jielong.sh
 
 
 If work in the internal network of TPV, please set git proxy.
