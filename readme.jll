@@ -26,8 +26,8 @@ About NFS in order to mount the windows partition to Linux.
   (3). In another system such as Linux:
            mount -v -t nfs -o nfsvers=3 xmnb4003161.tpvaoc.com:/works4tpv  works4tpv
            OR
-           modify nfs_by_jielong.sh then copy to /etc/profile.d/ as follows:
-           cp -rvf nfs_by_jielong.sh  /etc/profile.d/nfs_by_jielong.sh
+           modify S100_nfs_by_jielong.sh then copy to /etc/rcS.d/ as follows:
+           cp -rvf S100_nfs_by_jielong.sh  /etc/rcS.d/S100_nfs_by_jielong.sh
 
 
 If work in the internal network of TPV, please set git proxy.
