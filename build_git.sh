@@ -22,7 +22,10 @@ EOF
 fi
 
 #exit 0 # please do it after build git repository successfully.
-if [ x"$1" = x ]; then
+
+# first format must be USER@URL:PATH
+_fmt_chk=$(echo $1 | grep -E '[0-9a-zA-Z.-_]{1,}@[0-9a-zA-Z.-_]{1,}:..*')
+if [ x"$1" = x -o x"${_fmt_chk}" = x ]; then
     echo
     echo "Exit-0: please type the legal USERNAME@URL:PROJECT_PATH, such as:"
     echo "        git@172.20.30.29:~/project_test"
@@ -33,14 +36,20 @@ if [ x"$1" = x ]; then
     exit 0
 fi
 
-_my_URL=$1
+
+_my_URL=$1  
+
 _my_Project=${_my_URL##*:}
 _my_URL=${_my_URL%%:*}
 echo
 echo "JLL-Probing: check if ${_my_Project} is valid or not..."
-ssh ${_my_URL} "ls ${_my_Project} 2>/dev/null"
+echo "             ssh ${_my_URL} \"ls ${_my_Project} 2>/dev/null\""
+_net_chk=$(ssh ${_my_URL} "ls ${_my_Project} 2>/dev/null" 2>/dev/null)
 echo
-if [ x"$?" != x"0" ]; then
+echo "JLL-Debug: ${_net_chk}"
+echo
+#if [ x"$?" != x"0" -o x"${_net_chk}" = x ]; then
+if [ x"${_net_chk}" = x ]; then
     echo
     echo "Exit-1: please type the legal USERNAME@URL:PROJECT_PATH, such as:"
     echo "        git@172.20.30.29:~/project_test"
