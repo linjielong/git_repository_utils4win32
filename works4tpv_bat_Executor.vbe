@@ -1,0 +1,4 @@
+
+DIM objShell 
+set objShell=wscript.createObject("wscript.shell")
+iReturn=objShell.Run("cmd.exe /C works4tpv_BY_WinNFSd.bat", 0, TRUE)

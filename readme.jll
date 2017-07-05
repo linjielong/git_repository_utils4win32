@@ -29,4 +29,5 @@ About NFS in order to mount the windows partition to Linux.
 
 
 
-
+If work in the internal network of TPV, please set git proxy.
+    git config --global http.proxy "172.20.30.1:3128"
