@@ -1,0 +1,30 @@
+Copyright(c) 2017-2100.     jielong.lin@qq.com     All rights reserved.
+
+
+Propose that install the below softwares in your Windows:
+ "C:\Program Files\ConEmu\ConEmu.exe"
+ "C:\Program Files\Git\git-bash.exe" --cd-to-home"
+
+
+
+Usage:
+===============================================================
+  (1) Assume that your project is already created.
+  (2) copy build_git.sh, git_push.sh, git_pull.sh into the root path of your project.
+  (3) switch the current path to the root path of your project.
+  (4) ./build_git.sh help  #Obtain the help of usage
+  (5) ./build_git.sh git@Remote_Server_URL:Your_Project_Path #Build the git repository
+      such as ./build_git.sh git@172.20.30.29:~/project_test
+
+
+
+About NFS in order to mount the windows partition to Linux.
+===============================================================
+  (1). cp -rvf WinNFSd.exe /usr/bin/    #ensure run WinNFSd.exe in anywhere
+  (2). WinNFSd . /exports   #export the current path as the root of NFS.
+  (3). In another system such as Linux:
+           mount -v -t nfs -o nfsvers=3 xmnb4003161.tpvaoc.com:/exports Win7
+
+
+
+
