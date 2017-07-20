@@ -24,9 +24,12 @@ fi
 #exit 0 # please do it after build git repository successfully.
 
 # first format must be USER@URL:PATH
-_fmt_chk=$(echo $1 | grep -E '[0-9a-zA-Z.-_]{1,}@[0-9a-zA-Z.-_]{1,}:..*')
+_fmt_chk=$(echo "$1" | grep -E '[0-9a-zA-Z._-]{1,}@[0-9a-zA-Z._-]{1,}:..*' 2>/dev/null)
 if [ x"$1" = x -o x"${_fmt_chk}" = x ]; then
     echo
+    echo "Reason: \$1=\"$1\" or _fmt_chk=\"${_fmt_chk}\" is null."
+    echo "Reason: _fmt_chk=\$(echo \"$1\" \
+| grep -E '[0-9a-zA-Z.-_]{1,}@[0-9a-zA-Z.-_]{1,}:..*' 2>/dev/null) "
     echo "Exit-0: please type the legal USERNAME@URL:PROJECT_PATH, such as:"
     echo "        git@172.20.30.29:~/project_test"
     echo
