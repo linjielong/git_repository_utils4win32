@@ -49,11 +49,13 @@ echo "JLL-Probing: check if ${_my_Project} is valid or not..."
 echo "             ssh ${_my_URL} \"ls ${_my_Project} 2>/dev/null\""
 _net_chk=$(ssh ${_my_URL} "ls ${_my_Project} 2>/dev/null" 2>/dev/null)
 echo
-echo "JLL-Debug: ${_net_chk}"
+echo "JLL-Debug: The git remote repository (${_my_URL}:${_my_Project}) contain"
+echo "${_net_chk}"
 echo
 #if [ x"$?" != x"0" -o x"${_net_chk}" = x ]; then
 if [ x"${_net_chk}" = x ]; then
     echo
+    echo "Reason: The git remote repository (${_my_URL}:${_my_Project}) is null"
     echo "Exit-1: please type the legal USERNAME@URL:PROJECT_PATH, such as:"
     echo "        git@172.20.30.29:~/project_test"
     echo
